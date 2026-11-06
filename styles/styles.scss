@@ -1,0 +1,142 @@
+$ink: #26352e;
+$muted: #728078;
+$green: #496b57;
+$paper: #f6f5ef;
+$line: #dce2d8;
+
+:root {
+  color-scheme: light;
+  --paper: #{$paper};
+  --ink: #{$ink};
+  --muted: #{$muted};
+  --line: #{$line};
+  --panel: #fffefa;
+  --input: #fff;
+  --preview: #f1f4ee;
+}
+
+body.dark-theme {
+  color-scheme: dark;
+  --paper: #18211c;
+  --ink: #e6eee8;
+  --muted: #a7b5aa;
+  --line: #3b4a40;
+  --panel: #232f28;
+  --input: #1b2720;
+  --preview: #2c3b31;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.site-header {
+  position: relative;
+  padding: 32px 20px 30px;
+  text-align: center;
+}
+
+.site-logo {
+  position: absolute;
+  top: 32px;
+  left: 20px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 32px;
+  right: 20px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: $green; }
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: $green;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+h1, h2, p { margin-top: 0; }
+h1 { margin-bottom: 8px; font-family: Georgia, serif; font-size: 34px; }
+h2 { margin-bottom: 4px; font-family: Georgia, serif; font-size: 25px; }
+.intro, .muted, footer { color: var(--muted); }
+.intro { margin-bottom: 0; }
+
+.page-layout {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 20px;
+}
+
+.form-panel, .list-panel {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.muted { margin-bottom: 22px; font-size: 14px; }
+label { display: block; margin: 14px 0 6px; font-size: 14px; font-weight: bold; }
+input, select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #cbd5ca;
+  border-radius: 7px;
+  background: var(--input);
+  color: var(--ink);
+  font: inherit;
+}
+input:focus, select:focus { outline: 2px solid $green; outline-offset: 2px; }
+.field-error { min-height: 22px; margin: 6px 0 4px; color: #a13d35; font-size: 13px; }
+.activity-preview { padding: 10px; border-left: 3px solid $green; background: var(--preview); color: var(--ink); font-size: 13px; }
+.invalid { border-color: #a13d35; background: #fff7f5; }
+.button { width: 100%; min-height: 44px; margin-top: 8px; padding: 10px; border: 1px solid $green; border-radius: 7px; font: inherit; cursor: pointer; }
+.button-primary { background: $green; color: white; }
+.button-quiet { background: transparent; color: $green; }
+.button:hover { background: #365341; color: white; }
+
+.list-heading { display: flex; align-items: end; justify-content: space-between; gap: 12px; }
+.count { margin: 0 0 5px; color: var(--muted); font-size: 13px; }
+.status-message { min-height: 24px; margin: 14px 0 0; color: $green; font-size: 14px; }
+.empty-message { padding: 34px 10px; color: var(--muted); text-align: center; }
+.activity-list { margin: 0; padding: 0; list-style: none; }
+.activity-item { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 15px 0; border-top: 1px solid var(--line); }
+.activity-item h3 { margin: 0 0 4px; font-size: 16px; }
+.activity-details { margin: 0; color: var(--muted); font-size: 13px; }
+.delete-button { padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: $green; cursor: pointer; }
+.delete-button:hover { border-color: $green; }
+footer { padding: 28px 16px; text-align: center; font-size: 13px;}
+footer p { margin: 0; }
+
+@media (max-width: 680px) {
+  .site-header { padding-top: 24px; }
+  .site-logo { top: 24px; left: 16px; }
+  .theme-toggle { top: 24px; right: 16px; }
+  h1 { font-size: 29px; }
+  .page-layout { grid-template-columns: 1fr; }
+  .form-panel, .list-panel { padding: 22px; }
+}
